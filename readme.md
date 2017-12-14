@@ -16,3 +16,6 @@ Parameter 'ip' can be empty and it will automatic get the ip of client connectio
 
 ### get ip of host:
 ```curl http://{server}:11111/get?host=www.aaa.com```
+
+## Server stub
+server.js for server use to send current ip address to ipmap sever.
