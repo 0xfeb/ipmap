@@ -36,8 +36,11 @@ app.get('/get', function(req, res){
     let host = req.query.host
 
     let ip = mapList[host]
-
-    res.send(ip)
+    if (ip == undefined) {
+        res.send('localhost')
+    } else {
+        res.send(ip)
+    }
 })
 
 app.listen(port, function(){
