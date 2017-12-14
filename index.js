@@ -5,10 +5,16 @@ var mapList = new Array()
 let port = 11111
 
 function getClientIp(req) {
-    return req.headers['x-forwarded-for'] ||
-    req.connection.remoteAddress ||
-    req.socket.remoteAddress ||
-    req.connection.socket.remoteAddress;
+    var ip = req.headers['x-forwarded-for'] ||
+        req.connection.remoteAddress ||
+        req.socket.remoteAddress ||
+        req.connection.socket.remoteAddress
+    let list = ip.split(':')
+    let count = list.length
+    if(count > 0){
+        ip = list[count-1]
+    }
+    return ip
 }
 
 app.get('/set', function(req, res){
